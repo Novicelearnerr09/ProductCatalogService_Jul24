@@ -62,7 +62,7 @@ public class ProductController {
     public ProductDto replaceProduct(@PathVariable Long id, @RequestBody ProductDto productDto) {
         Product product = getProduct(productDto);
         Product newProduct = iProductService.replaceProduct(id,product);
-        return getProductDto(newProduct);
+        return getProductDto(newProduct);//commit
     }
 
     private Product getProduct(ProductDto productDto) {
