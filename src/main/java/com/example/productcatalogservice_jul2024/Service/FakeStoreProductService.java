@@ -6,11 +6,8 @@ import com.example.productcatalogservice_jul2024.Model.Product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RequestCallback;
 import org.springframework.web.client.ResponseExtractor;
@@ -22,7 +19,7 @@ import java.util.List;
 
 
 @Service
-public class FakeStoreProductService implements IFakeStoreProductService {
+public class FakeStoreProductService implements IProductService {
 
     @Autowired
     private RestTemplateBuilder restTemplateBuilder;
@@ -42,7 +39,7 @@ public class FakeStoreProductService implements IFakeStoreProductService {
     }
 
     @Override
-    public Product createProduct() {
+    public Product createProduct(Product product) {
         return null;
     }
 

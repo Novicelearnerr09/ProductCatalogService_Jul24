@@ -15,6 +15,6 @@ public class Category extends BaseModel{
     private String description;
    @OneToMany(mappedBy = "category")
     private List<Product> productList = new ArrayList<>();
-   private State state;
+ //  private State state;
 }
 //2nd commit from earth
