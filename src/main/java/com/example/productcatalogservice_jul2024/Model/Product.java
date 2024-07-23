@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Product  extends BaseModel{
+    private boolean isPrime;
     private String name;
     private Long price;
     private String description;

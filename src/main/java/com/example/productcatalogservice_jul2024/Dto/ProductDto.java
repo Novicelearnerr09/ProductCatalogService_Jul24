@@ -7,6 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ProductDto {
+    private boolean isPrime;
+
     private String name;
     private String Description;
     private Long Id;

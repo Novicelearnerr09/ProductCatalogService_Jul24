@@ -91,6 +91,7 @@ public class FakeStoreProductService implements IProductService {
     }
     private FakeStoreProductDto getFakeStoreProductDto(Product product) {
         FakeStoreProductDto fakeStoreProductDto = new FakeStoreProductDto();
+        fakeStoreProductDto.setId(product.getId());
         fakeStoreProductDto.setDescription(product.getDescription());
         fakeStoreProductDto.setPrice(product.getPrice());
         fakeStoreProductDto.setImage(product.getImageUrl());
