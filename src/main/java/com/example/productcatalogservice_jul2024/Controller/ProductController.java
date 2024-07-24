@@ -37,17 +37,20 @@ public class ProductController {
     @GetMapping("/product/{id}")
     public ResponseEntity<ProductDto> getProduct(@PathVariable("id") Long productId) {
         try {
-            if (productId <= 1) {
-                throw new IllegalArgumentException("invalid productId");
-            }
-            Product product = iProductService.getProductById(productId);
-            ProductDto body = getProductDto(product);
-            MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
-            headers.add("called by", "anurag");
-            return new ResponseEntity<>(body, headers, HttpStatus.OK);
-        } catch(IllegalArgumentException ex) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (productId <= 0) {
+            throw new IllegalArgumentException("invalid productId");
         }
+
+        Product product = iProductService.getProductById(productId);
+        ProductDto body = getProductDto(product);
+        MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+        headers.add("called by", "anurag");
+        return new ResponseEntity<>(body, headers, HttpStatus.OK);
+    } catch(IllegalArgumentException ex) {
+        throw ex;
+        //return handleExceptions(ex);
+        //return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
     }
 
     @PostMapping
